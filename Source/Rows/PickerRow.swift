@@ -59,10 +59,11 @@ public class PickerCell<T where T: Equatable> : Cell<T>, CellType, UIPickerViewD
         return pickerRow?.options.count ?? 0
     }
     
-    public func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerRow?.displayValueFor?(pickerRow?.options[row])
-    }
-    
+	public func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+		let title = pickerRow?.displayValueFor?(pickerRow?.options[row])
+		return NSAttributedString(string: title!, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+	}
+	
     public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerRow?.value = pickerRow?.options[row]
     }
