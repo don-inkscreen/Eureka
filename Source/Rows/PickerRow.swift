@@ -78,7 +78,7 @@ open class PickerCell<T> : Cell<T>, CellType, UIPickerViewDataSource, UIPickerVi
         return pickerRow?.options.count ?? 0
     }
     
-    open func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> String? {
+    open func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let title = pickerRow?.displayValueFor?(pickerRow?.options[row])
         return NSAttributedString(string: title!, attributes: [NSForegroundColorAttributeName: UIColor.white])
     }
